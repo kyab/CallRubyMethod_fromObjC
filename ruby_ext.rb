@@ -8,7 +8,7 @@
 class Util
 
 	#dump c struct.
-	#assume o is a NSValue and o.pointerValue returns address of target struct
+	#assume o is a NSValue and o.pointerValue returns address to target struct
 	def self.dump_struct_withName(o,klass_name)
 
 		#puts "go inside"
@@ -18,7 +18,7 @@ class Util
 			
 			pointer.cast!(TopLevel.const_get(klass_name).type)
 			
-			#ポインタから実体を取り出して、pする。
+			#ポインタから実体を取り出して、pする。あとはRuby側のObject.inspectが頑張る。
 			p pointer[0]
 		end
 		

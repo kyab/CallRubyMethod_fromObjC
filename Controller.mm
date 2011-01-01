@@ -39,7 +39,7 @@ void dump_struct(const T &t){
 	const std::type_info &type = typeid(t);
 	std::string demangled_type_name = demangle(type.name());
 	
-	//NSValueにポインタを入れて、型名と共にRuby側にわたす。
+	//NSValueにポインタを入れて、型名と共にRuby側に渡す。
 	//(ポインタやid型以外を直接Rubyのメソッドの引数に渡せない
 	NSValue *v = [NSValue valueWithPointer:&t];
 	NSString *typeName = [NSString stringWithCString:demangled_type_name.c_str() encoding:kCFStringEncodingUTF8 ];
