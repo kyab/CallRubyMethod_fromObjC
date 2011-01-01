@@ -32,9 +32,8 @@ end
 
 class Util
 
-	#dumping c struct.
-	#assume o is a NSValue and address of target struct could be obtained
-	#by o.pointerValue
+	#dump c struct.
+	#assume o is a NSValue and o.pointerValue returns address of target struct
 	def self.dump_struct_withName(o,klass_name)
 		#puts "dump_struct_withName"
 		#puts "args class=" + o.class.to_s
@@ -43,17 +42,14 @@ class Util
 		#puts "go inside"
 		if (o.kind_of?(NSValue))
 			pointer = o.pointerValue
-			#p pointer
-			#p pointer.type
+			p pointer.class 		#=>Pointer
 			pointer.cast!(TopLevel.const_get(klass_name).type)
-			#p pointer.type
+			
+			#ポインタから実体を取り出して、pする。
 			p pointer[0]
 		end
 		
 	end
 
-	def initialize()
-		puts "in Ruby: Util.new called"
-	end
 end
 		

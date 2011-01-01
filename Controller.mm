@@ -5,14 +5,14 @@
 //  Created by koji on 10/12/27.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
-#include <typeinfo>
-#import "Controller.h"
+#include <typeinfo>	
 #include "CoreAudio/CoreAudio.h"
+#import "Controller.h"
 #import "MacRuby/MacRuby.h"
 
 #include <string>
 
-//demangle function
+//demangle function (gcc only)
 //http://d.hatena.ne.jp/hidemon/20080731/1217488497
 #include <string>
 extern "C" char *__cxa_demangle (
@@ -31,13 +31,16 @@ std::string demangle(const char * name) {
 }
 
 
-
-
+//MacRubyへのブリッジ関数
 template <typename T>
 void dump_struct(const T &t){
+	
+	//型名を文字列で取得
 	const std::type_info &type = typeid(t);
 	std::string demangled_type_name = demangle(type.name());
 	
+	//NSValueにポインタを入れて、型名と共にRuby側にわたす。
+	//(ポインタやid型以外を直接Rubyのメソッドの引数に渡せない
 	NSValue *v = [NSValue valueWithPointer:&t];
 	NSString *typeName = [NSString stringWithCString:demangled_type_name.c_str() encoding:kCFStringEncodingUTF8 ];
 	id ruby_util = [[MacRuby sharedRuntime] evaluateString:@"Util"];
@@ -45,31 +48,21 @@ void dump_struct(const T &t){
 }
 
 @implementation Controller
+//メイン
 - (IBAction)callRubyMethod:(id)sender{
 	
-	//simple example
-	id a = [[MacRuby sharedRuntime] evaluateString:@"AudioBuffer.new"];
-	[a performRubySelector:@selector(describe)];	//describe is a extention method for AudioBuffer 	
+	AudioStreamBasicDescription format;		//defined in CoreAudioTypes.h
+	format.mSampleRate = 44100.0;
+	format.mFormatID = kAudioFormatLinearPCM;	//1819304813
+	format.mFormatFlags = 41;
+	format.mBytesPerPacket = 4;
+	format.mFramesPerPacket = 1;
+	format.mBytesPerFrame = 4;
+	format.mChannelsPerFrame = 2;
+	format.mBitsPerChannel = 32;
+	format.mReserved = 0;
 	
-	
-	//Dump any C struct with MacRuby(eazy way!!)
-	AudioBuffer ab;
-	ab.mNumberChannels = 3;
-	ab.mDataByteSize = 99;
-	ab.mData = NULL;
-	
-	id ruby_util = [[MacRuby sharedRuntime] evaluateString:@"Util"];
-	NSValue *v = [NSValue valueWithPointer:&ab];
-	
-	//selectorの引数にはid型しか渡せないので、NSValue *にポインタを埋めこんで渡す。
-	//更に型名(構造体名)も２つ目の引数に渡してやる。
-	[ruby_util performRubySelector:@selector(dump_struct_withName:) withArguments:v,@"AudioBuffer",NULL];
-	
-	
-	
-	NSLog(@"------------------------\n");
-	//dump_structで一発
-	dump_struct(ab);
+	dump_struct(format);
 	
 	
 }

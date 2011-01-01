@@ -22,7 +22,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					594,
+					640,
 					20,
 					48,
 					43,
@@ -39,17 +39,16 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 315163289;
-			PBXWorkspaceStateSaveDate = 315163289;
+			PBXPerProjectTemplateStateSaveDate = 315597860;
+			PBXWorkspaceStateSaveDate = 315597860;
 		};
 		perUserProjectItems = {
-			EB14BE2F12C8B77B002DB9A3 = EB14BE2F12C8B77B002DB9A3 /* PBXTextBookmark */;
-			EB14BE3112C8B77B002DB9A3 = EB14BE3112C8B77B002DB9A3 /* PBXTextBookmark */;
-			EB14BE5212C8B8FF002DB9A3 = EB14BE5212C8B8FF002DB9A3 /* PBXTextBookmark */;
-			EB4FE88212C8C45600BDEDB8 = EB4FE88212C8C45600BDEDB8 /* PBXTextBookmark */;
-			EB4FE8AB12C8D43400BDEDB8 = EB4FE8AB12C8D43400BDEDB8 /* PBXTextBookmark */;
-			EBDE492B12C902A4007FC657 /* PBXTextBookmark */ = EBDE492B12C902A4007FC657 /* PBXTextBookmark */;
-			EBDE494312C902E3007FC657 /* PBXTextBookmark */ = EBDE494312C902E3007FC657 /* PBXTextBookmark */;
+			EB14BE2F12C8B77B002DB9A3 /* PBXTextBookmark */ = EB14BE2F12C8B77B002DB9A3 /* PBXTextBookmark */;
+			EB14BE3112C8B77B002DB9A3 /* PBXTextBookmark */ = EB14BE3112C8B77B002DB9A3 /* PBXTextBookmark */;
+			EB14BE5212C8B8FF002DB9A3 /* PBXTextBookmark */ = EB14BE5212C8B8FF002DB9A3 /* PBXTextBookmark */;
+			EBE7518312CFAA1D0090136B /* PBXTextBookmark */ = EBE7518312CFAA1D0090136B /* PBXTextBookmark */;
+			EBE7518512CFAA1D0090136B /* PBXTextBookmark */ = EBE7518512CFAA1D0090136B /* PBXTextBookmark */;
+			EBE7518612CFAA1D0090136B /* PBXTextBookmark */ = EBE7518612CFAA1D0090136B /* PBXTextBookmark */;
 		};
 		sourceControlManager = EB14BD9312C8A245002DB9A3 /* Source Control */;
 		userBuildSettings = {
@@ -122,16 +121,16 @@
 	};
 	EB14BD9812C8A26E002DB9A3 /* Controller.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {810, 1241}}";
-			sepNavSelRange = "{1903, 0}";
-			sepNavVisRange = "{739, 1253}";
+			sepNavIntBoundsRect = "{{0, 0}, {818, 1135}}";
+			sepNavSelRange = "{1164, 0}";
+			sepNavVisRange = "{747, 1044}";
 		};
 	};
 	EB14BD9B12C8A288002DB9A3 /* ruby_ext.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {581, 960}}";
-			sepNavSelRange = "{583, 0}";
-			sepNavVisRange = "{284, 688}";
+			sepNavIntBoundsRect = "{{0, 0}, {581, 899}}";
+			sepNavSelRange = "{866, 0}";
+			sepNavVisRange = "{220, 685}";
 		};
 	};
 	EB14BE2F12C8B77B002DB9A3 /* PBXTextBookmark */ = {
@@ -171,44 +170,40 @@
 		vrLen = 496;
 		vrLoc = 192;
 	};
-	EB4FE88212C8C45600BDEDB8 /* PBXTextBookmark */ = {
+	EBE7518312CFAA1D0090136B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = EB14BD9812C8A26E002DB9A3 /* Controller.mm */;
-		name = "Controller.mm: 34";
-		rLen = 0;
-		rLoc = 737;
+		fRef = EBE7518412CFAA1D0090136B /* CoreAudioTypes.h */;
+		name = "CoreAudioTypes.h: 167";
+		rLen = 35;
+		rLoc = 6466;
 		rType = 0;
-		vrLen = 1020;
-		vrLoc = 395;
+		vrLen = 1630;
+		vrLoc = 5575;
 	};
-	EB4FE8AB12C8D43400BDEDB8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = EB14BD9812C8A26E002DB9A3 /* Controller.mm */;
-		name = "Controller.mm: 68";
-		rLen = 0;
-		rLoc = 1903;
-		rType = 0;
-		vrLen = 1210;
-		vrLoc = 459;
+	EBE7518412CFAA1D0090136B /* CoreAudioTypes.h */ = {
+		isa = PBXFileReference;
+		name = CoreAudioTypes.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreAudio.framework/Versions/A/Headers/CoreAudioTypes.h;
+		sourceTree = "<absolute>";
 	};
-	EBDE492B12C902A4007FC657 /* PBXTextBookmark */ = {
+	EBE7518512CFAA1D0090136B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = EB14BD9812C8A26E002DB9A3 /* Controller.mm */;
-		name = "Controller.mm: 68";
+		name = "Controller.mm: 57";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1470;
 		rType = 0;
-		vrLen = 1119;
-		vrLoc = 484;
+		vrLen = 1076;
+		vrLoc = 749;
 	};
-	EBDE494312C902E3007FC657 /* PBXTextBookmark */ = {
+	EBE7518612CFAA1D0090136B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = EB14BD9812C8A26E002DB9A3 /* Controller.mm */;
-		name = "Controller.mm: 68";
+		name = "Controller.mm: 46";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1164;
 		rType = 0;
-		vrLen = 1253;
-		vrLoc = 739;
+		vrLen = 1044;
+		vrLoc = 747;
 	};
 }
