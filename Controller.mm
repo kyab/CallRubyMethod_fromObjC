@@ -8,7 +8,7 @@
 #include <typeinfo>	
 #include "CoreAudio/CoreAudio.h"
 #import "Controller.h"
-#import "MacRuby/MacRuby.h"
+#import "MacRuby/MacRuby.h"	//for [MacRuby sharedRuntime]
 
 #include <string>
 
@@ -48,12 +48,13 @@ void dump_struct(const T &t){
 }
 
 @implementation Controller
-//メイン
+
+//ボタンがクリックされたときのアクション
 - (IBAction)callRubyMethod:(id)sender{
 	
 	AudioStreamBasicDescription format;		//defined in CoreAudioTypes.h
 	format.mSampleRate = 44100.0;
-	format.mFormatID = kAudioFormatLinearPCM;	//1819304813
+	format.mFormatID = kAudioFormatLinearPCM;
 	format.mFormatFlags = 41;
 	format.mBytesPerPacket = 4;
 	format.mFramesPerPacket = 1;
@@ -63,7 +64,6 @@ void dump_struct(const T &t){
 	format.mReserved = 0;
 	
 	dump_struct(format);
-	
 	
 }
 @end
