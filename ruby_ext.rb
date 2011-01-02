@@ -10,18 +10,20 @@ class Util
 	#dump c struct.
 	#assume o is a NSValue and o.pointerValue returns address to target struct
 	def self.dump_struct_withName(o,klass_name)
-
-		#puts "go inside"
 		if (o.kind_of?(NSValue))
 			pointer = o.pointerValue
-			puts pointer.class 		#=>Pointer
+			#p pointer.class	#=>Pointer
 			
 			pointer.cast!(TopLevel.const_get(klass_name).type)
+			struct = pointer[0]
 			
-			#ポインタから実体を取り出して、pする。あとはRuby側のObject.inspectが頑張る。
-			p pointer[0]
+			return unless struct.class.respond_to?(:fields)
+			
+			puts "dumping struct #{struct.class}"
+			struct.class.fields.each do |field_name|
+				puts "\t#{field_name.to_s} = #{struct.__send__(field_name)}"
+			end
 		end
-		
 	end
 
 end
